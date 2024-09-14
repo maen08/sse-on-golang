@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE with Go</title>
+</head>
+<body>
+    <div class="card">
+        <h2>SSE with Golang</h2>
+        <h4>Counter: 
+            <span id="sse-data"></span>
+        </h4>
+
+        <script>
+            const eventSource = new EventSource('http://localhost:9090/stream');
+            eventSource.onmessage = function(event) {
+                const dataElement = document.getElementById('sse-data');
+                dataElement.innerHTML = event.data;
+                console.log(event)
+            };
+        </script>
+       
+    </div>
+</body>
+</html>
