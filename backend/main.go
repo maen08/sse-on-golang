@@ -22,7 +22,7 @@ func streamDataHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Cache-Control", "no-cache")
 	w.Header().Set("Connection", "keep-alive")
 
-	// simulate data streaming
+	// simulate data changes with counter
 	counter++
 	fmt.Fprintf(w, "data: %v\n\n", counter)
 	w.(http.Flusher).Flush()
